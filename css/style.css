@@ -89,79 +89,128 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 }
 .main-banner-img img { width: 100%; display: block; }
 
-/* CARDS PROYECTOS CORREGIDAS */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 3rem; padding: 60px 0; }
-.card { border: 1px solid var(--border); border-radius: 24px; overflow: hidden; background: #fff; transition: 0.4s ease; text-align: center; }
-.card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+/*--ESTILOS DE PROJECT CARDS--*/
+.projects-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 2.5rem; 
+    padding: 60px 0; 
+}
+
+.card { 
+    border: 1px solid var(--border); 
+    border-radius: 24px; 
+    overflow: hidden; 
+    background: #e3e9e9; 
+    transition: 0.4s ease; 
+    display: flex;
+    flex-direction: column;
+}
+.card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+}
 
 .card-image {
-    height: 220px; /* Keep a defined height for consistency */
-    background: var(--bg-gray);
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden; /* Ensure image doesn't overflow padding */
-}
-.card-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; /* Ensures image fits without cropping */
-    border-radius: 12px;
-    height: auto; /* Allow image to scale its height */
-    width: auto; /* Allow image to scale its width */
-    display: block; /* Remove extra space below image */
+    height: 240px;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Card Buttons Grouping */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Estilo especial para logos o imágenes que no deben rellenar todo el espacio */
+.card-image.logo-bg {
+    background-color: var(--bg-gray);
+    padding: 1.5rem; /* Añade espacio interno para que el logo respire */
+}
+
+.card-image.logo-bg img {
+    object-fit: contain; /* Asegura que toda la imagen sea visible sin estirarse */
+    transform: none; /* Anula el efecto de zoom para los logos */
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que el body crezca y empuje los botones hacia abajo */
+}
+
+.card-body h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.card-body p {
+    color: var(--text-light);
+    flex-grow: 1; /* Empuja el contenido de abajo (tags y botones) hacia el final */
+    margin-bottom: 1.5rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+[class^="tag-"] {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
 .card-buttons {
     display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-    gap: 10px; /* Space between buttons */
-    justify-content: center;
-    margin-top: 1.5rem; /* Space above buttons */
-    width: 100%;
+    gap: 10px;
+    margin-top: auto; /* Empuja los botones al final de la card-body */
 }
 
 .btn-card {
-    flex-grow: 1; /* Allow buttons to grow and fill space */
-    max-width: 180px; /* Max width for individual buttons */
+    flex: 1;
     padding: 12px;
-    background: var(--dark);
-    color: #fff;
+    text-align: center;
     text-decoration: none;
     border-radius: 12px;
     font-weight: 600;
-    font-size: 0.9rem; /* Slightly smaller font for card buttons */
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn-card.primary {
-    background: var(--primary); /* Primary color for main action */
+    background: var(--primary);
+    color: #fff;
 }
 
 .btn-card.secondary {
-    background: var(--dark); /* Dark color for secondary action */
-    border: 1px solid var(--dark); /* Subtle border for distinction */
+    background: var(--dark);
+    color: #fff;
+    border: 1px solid var(--border);
 }
 
 .btn-card.primary:hover {
-    background: #1a4fba; /* Darken primary on hover */
+    background: #1a4fba;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
 }
 
 .btn-card.secondary:hover {
-    background: #94a3b8; /* Lighten dark on hover */
-    border-color: #94a3b8;
+    background: var(--text-light);
+    border-color: var(--text-light);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Ensure tag-list has correct margin-bottom as buttons moved */
-.card-body .tag-list {
-    margin-bottom: 1rem;
 }
 
 /* COLORES DE TAGS */
@@ -172,8 +221,12 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 .tag-nest { background: #fee2e2; color: #991b1b; }
 .tag-react { background: #ecfeff; color: #155e75; }
 .tag-db { background: #f3e8ff; color: #6b21a8; }
-
-.btn-card { width: 100%; padding: 12px; background: var(--dark); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 600; margin-top: 1rem; }
+.tag-ubuntu { background: #fee8df; color: #e95420; } /* Using Ubuntu brand color */
+.tag-mobaxterm { background: #e6e6e6; color: #555; } /* Using a neutral grey */
+.tag-digitalocean { background: #e0f7fa; color: #0080ff; } /* Using Digital Ocean brand color */
+.tag-github-pages { background: #f0f0f0; color: #24292e; } /* Using GitHub colors */
+.tag-indexeddb { background: #e6f7ff; color: #0068b3; } /* Custom color for IndexedDB */
+.tag-pwabuilder { background: #fffde7; color: #b79c00; } /* Custom color for PWABuilder */
 
 /* CONTACTO */
 .contact-section { padding: 100px 0; background: var(--bg-gray); border-top: 1px solid var(--border); }
@@ -305,13 +358,14 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 
 /* About Card */
 .about-card {
-    background: #c3cde2;
-    padding: 3rem; /* Same padding as contact-card */
+    background: #c9d1e2;
+    padding: 2rem; /* Same padding as contact-card */
     border-radius: 30px; /* Same border-radius as contact-card */
     border: 1px solid var(--border); /* Same border as contact-card */
     text-align: left; /* Align text to left inside the card */
     margin-bottom: 80px; /* Add some space below the card */
     box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Lighter shadow */
+    font-size: 0.9rem; /* Slightly smaller font size for card */
 }
 
 /* Adjust padding for about-content when inside about-card */
