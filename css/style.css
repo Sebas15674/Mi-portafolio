@@ -23,13 +23,48 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 
 /* HERO & BOTÓN REHECHO */
 .hero { padding: 80px 0 40px; text-align: center; }
-.badge { background: #eff6ff; color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; display: inline-block; }
+.badge { background: #c0d5f0; color: var(--primary); padding: 10px 19px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 2rem; display: inline-block; }
 .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1.5px; }
+.hero p {
+    font-size: 1.25rem; /* Increased font size */
+    font-weight: 500; /* Slightly bolder */
+    color: var(--dark); /* Ensure it's clearly visible against background */
+    margin-bottom: 3rem; /* Add some space below it */
+    line-height: 1.6; /* Ensure good readability */
+}
+
+/* Adjust spacing for the main button group */
+.main-btn-group {
+    display: flex;
+    gap: 1rem; /* Space between buttons */
+    justify-content: center;
+    margin-top: 2rem; /* Push buttons down */
+}
+
+/* Secondary Button Style */
+.btn.secondary {
+    display: inline-block;
+    background-color: #b7eca1;
+    color: var(--dark); /* Use dark color for text */
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 1px solid var(--border); /* Subtle border */
+    transition: 0.3s;
+}
+
+.btn.secondary:hover {
+    background: var(--bg-gray); /* Light background on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow on hover */
+    transform: translateY(-3px);
+}
 
 .btn.primary { 
     display: inline-block;
     background: var(--primary); 
-    color: #fff; 
+    color: #ffffff; 
     padding: 1rem 2.5rem; 
     border-radius: 12px; 
     text-decoration: none; 
@@ -41,8 +76,17 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 .btn.primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
 
 /* IMAGEN DEL BANNER PRINCIPAL */
-.hero-image-container { text-align: center; padding-bottom: 80px; }
-.main-banner-img { width: 100%; max-width: 900px; margin: 0 auto; border-radius: 24px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.12); border: 1px solid var(--border); }
+.hero-image-container { text-align: center; padding: 60px 0 80px; }
+.main-banner-img {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15), 0 0 15px rgba(37, 99, 235, 0.2);
+    border: 1px solid var(--border);
+    transition: all 0.5s ease;
+}
 .main-banner-img img { width: 100%; display: block; }
 
 /* CARDS PROYECTOS CORREGIDAS */
@@ -50,13 +94,75 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 .card { border: 1px solid var(--border); border-radius: 24px; overflow: hidden; background: #fff; transition: 0.4s ease; text-align: center; }
 .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
 
-.card-image { height: 220px; background: var(--bg-gray); padding: 20px; display: flex; align-items: center; justify-content: center; position: relative; }
-.card-image img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
+.card-image {
+    height: 220px; /* Keep a defined height for consistency */
+    background: var(--bg-gray);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Ensure image doesn't overflow padding */
+}
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures image fits without cropping */
+    border-radius: 12px;
+    height: auto; /* Allow image to scale its height */
+    width: auto; /* Allow image to scale its width */
+    display: block; /* Remove extra space below image */
+}
 
-/* TECNOLOGÍAS CENTRADAS Y CON AIRE */
-.card-body { padding: 2rem; display: flex; flex-direction: column; align-items: center; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 1.5rem; padding-top: 10px; }
-.tag-list span { font-size: 0.7rem; padding: 6px 12px; border-radius: 8px; font-weight: 800; text-transform: uppercase; }
+/* Card Buttons Grouping */
+.card-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px; /* Space between buttons */
+    justify-content: center;
+    margin-top: 1.5rem; /* Space above buttons */
+    width: 100%;
+}
+
+.btn-card {
+    flex-grow: 1; /* Allow buttons to grow and fill space */
+    max-width: 180px; /* Max width for individual buttons */
+    padding: 12px;
+    background: var(--dark);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem; /* Slightly smaller font for card buttons */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-card.primary {
+    background: var(--primary); /* Primary color for main action */
+}
+
+.btn-card.secondary {
+    background: var(--dark); /* Dark color for secondary action */
+    border: 1px solid var(--dark); /* Subtle border for distinction */
+}
+
+.btn-card.primary:hover {
+    background: #1a4fba; /* Darken primary on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.btn-card.secondary:hover {
+    background: #94a3b8; /* Lighten dark on hover */
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Ensure tag-list has correct margin-bottom as buttons moved */
+.card-body .tag-list {
+    margin-bottom: 1rem;
+}
 
 /* COLORES DE TAGS */
 .tag-js { background: #fef9c3; color: #854d0e; }
@@ -71,9 +177,145 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
 
 /* CONTACTO */
 .contact-section { padding: 100px 0; background: var(--bg-gray); border-top: 1px solid var(--border); }
-.contact-card { background: #fff; padding: 3rem; border-radius: 30px; border: 1px solid var(--border); text-align: center; }
+.contact-card {
+    background: #6497f7;
+    padding: 3rem;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Enhanced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+}
+.contact-card:hover {
+    transform: translateY(-5px); /* Lift slightly on hover */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1); /* More pronounced shadow on hover */
+}
 .contact-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
 .contact-item { text-decoration: none; color: var(--dark); display: flex; align-items: center; gap: 10px; font-weight: 600; padding: 12px 24px; border-radius: 15px; background: var(--bg-gray); transition: 0.3s; }
-.contact-item:hover { background: var(--dark); color: #fff; }
+.contact-item:hover {
+    background: var(--dark);
+    color: #fff;
+    transform: translateY(-3px); /* Lift slightly on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+}
 
 .main-footer { padding: 40px 0; text-align: center; color: var(--text-light); }
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0 80px;
+    line-height: 1.8;
+    font-size: 1.4rem;
+    color: var(--dark); /* Use existing dark variable for text */
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 80px 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: stretch;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05); /* Translucent background */
+    backdrop-filter: blur(5px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    width: 100%; /* Ensure cards take full width of their grid cell */
+    aspect-ratio: 1 / 1; /* Make cards square */
+}
+
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Elevate slightly */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Shine more */
+    background: rgba(255, 255, 255, 0.1); /* Brighter translucent background */
+}
+
+.skill-card .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.skill-card span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Icon Colors */
+.skill-js { color: #f7df1e; }
+.skill-react { color: #61dafb; }
+.skill-html5 { color: #e34f26; }
+.skill-css3 { color: #1572b6; }
+.skill-nodejs { color: #339933; }
+.skill-nestjs { color: #ea2845; } /* Using a common NestJS red/purple */
+.skill-postgresql { color: #336791; }
+.skill-git { color: #f05032; }
+.skill-mysql { color: #4479a1; }
+.skill-ubuntu { color: #e95420; }
+.skill-digitalocean { color: #0080ff; }
+.skill-mobaxterm { color: #555; } /* Generic dark grey */
+.skill-mongodb { color: #47a248; }
+
+/* Responsive adjustments for skills grid */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+    .skill-card {
+        padding: 1rem 0.5rem;
+    }
+    .skill-card .skill-icon {
+        font-size: 2.5rem;
+    }
+    .skill-card span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .skill-card .skill-icon {
+        font-size: 2rem;
+    }
+}
+
+/* About Card */
+.about-card {
+    background: #c3cde2;
+    padding: 3rem; /* Same padding as contact-card */
+    border-radius: 30px; /* Same border-radius as contact-card */
+    border: 1px solid var(--border); /* Same border as contact-card */
+    text-align: left; /* Align text to left inside the card */
+    margin-bottom: 80px; /* Add some space below the card */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Lighter shadow */
+}
+
+/* Adjust padding for about-content when inside about-card */
+.about-card .about-content {
+    padding: 0; /* Remove top/bottom padding as it's handled by about-card */
+    margin: 0 auto; /* Keep centered if max-width is smaller than card */
+}
