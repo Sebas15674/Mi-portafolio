@@ -88,7 +88,7 @@
                     <h3>TecnoCursos</h3>
                     <p>Plataforma Educativa Interactiva - Tecnoacademia SENA Proyecto de transformación digital diseñado para modernizar el aprendizaje. Convertí guías educativas estáticas en una experiencia web interactiva, mejorando la retención y el compromiso del estudiante mediante una interfaz dinámica y recursos multimedia.</p>
                     <div class="card-buttons">
-                        <a href="#" class="btn-card primary">Ver Video</a>
+                        <a href="#" class="btn-card primary open-modal-btn" data-video-id="9FLYTv4rpKM">Ver Video</a>
                         <a href="https://github.com/Sebas15674/Proyecto_Tecnoacademia" target="_blank" class="btn-card secondary">Ver Repositorio</a>
                     </div>
                 </div>
@@ -97,7 +97,30 @@
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 SebasDev. Todo el código centrado y limpio.</p>
-    </footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2026 SebasDev. Todo el código centrado y limpio.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/573127554003" target="_blank" class="social-icon" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:tibesbotipa@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="video-container">
+                <!-- YouTube iframe will be loaded here -->
+            </div>
+        </div>
+    </div>
 </body>
+    <script src="../js/script.js"></script>
 </html>

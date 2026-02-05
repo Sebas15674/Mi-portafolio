@@ -252,20 +252,201 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
     box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Subtle shadow on hover */
 }
 
-.main-footer { padding: 40px 0; text-align: center; color: var(--text-light); }
+.main-footer {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #0307ff;
+    border-top: 1px solid var(--border); /* Añadir borde superior para separación */
+    background-color: var(--bg-gray); /* Fondo sutil para destacar el footer */
+}
+
+/* --- Footer Styling --- */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    gap: 20px; /* Space between copyright and social icons */
+}
+
+.footer-copyright {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 0.95rem; /* Ligeramente más grande */
+    color: var(--text-light);
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px; /* Reducir un poco el espacio entre iconos */
+}
+
+.social-icon {
+    display: inline-flex; /* Usar flex para centrar el icono */
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Tamaño del círculo */
+    height: 50px; /* Tamaño del círculo */
+    border-radius: 50%; /* Hacerlo circular */
+    background-color: #e8dede; /* Color de fondo sutil para el círculo */
+    color: var(--primary); /* Color de los iconos por defecto */
+    font-size: 1.25rem; /* Ajustar tamaño del icono */
+    transition: all 0.3s ease;
+    text-decoration: none; /* Eliminar subrayado */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sutil sombra */
+}
+
+.social-icon:hover {
+    background-color: var(--primary); /* Cambiar fondo a color primario en hover */
+    color: #ffffff; /* Cambiar color del icono a blanco en hover */
+    transform: translateY(-3px) scale(1.05); /* Efecto lift y ligero zoom */
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3); /* Sombra más pronunciada */
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-copyright {
+        margin-bottom: 15px; /* Add space below copyright when stacked */
+    }
+}
+
 
 /* About Section */
+.about-section {
+    padding: 60px 0; /* Slightly reduced padding */
+    background: linear-gradient(145deg, var(--bg-gray) 0%, #ffffff 100%);
+    border-bottom: 1px solid var(--border);
+}
+
+.about-card {
+    background: #ffffff;
+    padding: 2.5rem; /* Slightly reduced padding */
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    text-align: left;
+    margin-bottom: 60px; /* Slightly reduced margin */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Reduced gap */
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+}
+
+.about-main-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Reduced gap */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.about-image-container {
+    flex-shrink: 0;
+    width: 260px; /* Slightly reduced size */
+    height: 260px; /* Slightly reduced size */
+    position: relative;
+}
+
+.about-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 6px solid var(--primary);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-image-container img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
 .about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px 0 80px;
-    line-height: 1.8;
-    font-size: 1.4rem;
-    color: var(--dark); /* Use existing dark variable for text */
+    flex-grow: 1;
+    max-width: 600px;
+    font-size: 1.1rem; /* Slightly reduced font size */
+    line-height: 1.7; /* Slightly reduced line-height */
+    color: var(--dark);
+}
+
+.about-content h2 {
+    font-size: 2.2rem; /* Slightly reduced font size */
+    margin-bottom: 1.2rem; /* Slightly reduced margin */
+    color: var(--dark);
+    letter-spacing: -1px;
+    font-weight: 800;
 }
 
 .about-content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* Slightly reduced margin */
+}
+
+/* Responsive adjustments for about section */
+@media (max-width: 992px) {
+    .about-main-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem; /* Reduced gap */
+    }
+    .about-image-container {
+        width: 220px; /* Adjusted size */
+        height: 220px; /* Adjusted size */
+    }
+    .about-content {
+        max-width: 100%;
+        font-size: 1.05rem; /* Adjusted font size */
+    }
+    .about-content h2 {
+        font-size: 1.8rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 50px 0; /* Further reduced padding */
+    }
+    .about-card {
+        padding: 1.8rem; /* Further reduced padding */
+    }
+    .about-image-container {
+        width: 180px; /* Adjusted size */
+        height: 180px; /* Adjusted size */
+    }
+    .about-content {
+        font-size: 0.95rem; /* Adjusted font size */
+    }
+    .about-content h2 {
+        font-size: 1.6rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-card {
+        padding: 1.2rem; /* Further reduced padding */
+        margin-bottom: 40px; /* Further reduced margin */
+    }
+    .about-image-container {
+        width: 150px; /* Adjusted size */
+        height: 150px; /* Adjusted size */
+    }
+    .about-content {
+        font-size: 0.9rem; /* Adjusted font size */
+    }
+    .about-content h2 {
+        font-size: 1.3rem; /* Adjusted font size */
+    }
 }
 
 /* Skills Section */
@@ -356,78 +537,69 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
     }
 }
 
-/* About Card */
-.about-card {
-    background: #c9d1e2;
-    padding: 2rem; /* Same padding as contact-card */
-    border-radius: 30px; /* Same border-radius as contact-card */
-    border: 1px solid var(--border); /* Same border as contact-card */
-    text-align: left; /* Align text to left inside the card */
-    margin-bottom: 80px; /* Add some space below the card */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Lighter shadow */
-    font-size: 0.9rem; /* Slightly smaller font size for card */
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.931); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
 }
 
-.about-main-content {
-    display: flex;
-    align-items: flex-start; /* Align items to the top */
-    gap: 2rem; /* Space between image and text */
-    /* flex-wrap: wrap; Removed for desktop to prevent unwanted stacking */
-    justify-content: center; /* Center the image and text block */
+.modal-content {
+    background-color: var(--dark);
+    margin: auto;
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px #4378f3;
+    animation: fadeIn 0.3s ease-out;
 }
 
-.about-image-container {
-    flex-shrink: 0; /* Prevent image from shrinking */
-    width: 250px; /* Fixed width for the image container */
-    /* margin-right: auto; Removed, gap handles spacing */
+.close-button {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.about-image-container img {
-    max-width: 100%; /* Image fills its container */
-    height: auto;
-    border-radius: 20%; /* Makes the image circular */
-    display: block;
-    margin: 0 auto; /* Center image within its container */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border: 5px solid #e1f3f1; /* White border around the image */
-    transition: transform 0.3s ease;
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary);
+    text-decoration: none;
 }
 
-.about-image-container img:hover {
-    transform: scale(1.05);
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
 }
 
-/* Adjust padding for about-content when inside about-card */
-.about-card .about-content {
-    padding: 0; /* Remove top/bottom padding as it's handled by about-card */
-    margin: 0; /* Removed margin auto */
-    flex-grow: 1; /* Allow content to grow and take available space */
-    max-width: none; /* Override previous max-width */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.about-content p {
-    margin-bottom: 1.3rem;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .about-main-content {
-        flex-direction: column; /* Stack image and text vertically */
-        text-align: center; /* Center text when stacked */
-        align-items: center; /* Center items when stacked vertically */
-        flex-wrap: wrap; /* Re-enable wrapping for mobile if needed, though column should handle it */
-    }
-
-    .about-image-container {
-        margin-bottom: 1.5rem; /* Space below image when stacked */
-        width: 100%; /* Allow image container to take full width */
-    }
-
-    .about-image-container img {
-        max-width: 200px; /* Limit image size on small screens */
-    }
-
-    .about-card .about-content {
-        text-align: center; /* Center text content for mobile */
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
