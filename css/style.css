@@ -368,8 +368,66 @@ body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); l
     font-size: 0.9rem; /* Slightly smaller font size for card */
 }
 
+.about-main-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 2rem; /* Space between image and text */
+    /* flex-wrap: wrap; Removed for desktop to prevent unwanted stacking */
+    justify-content: center; /* Center the image and text block */
+}
+
+.about-image-container {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    width: 250px; /* Fixed width for the image container */
+    /* margin-right: auto; Removed, gap handles spacing */
+}
+
+.about-image-container img {
+    max-width: 100%; /* Image fills its container */
+    height: auto;
+    border-radius: 20%; /* Makes the image circular */
+    display: block;
+    margin: 0 auto; /* Center image within its container */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: 5px solid #e1f3f1; /* White border around the image */
+    transition: transform 0.3s ease;
+}
+
+.about-image-container img:hover {
+    transform: scale(1.05);
+}
+
 /* Adjust padding for about-content when inside about-card */
 .about-card .about-content {
     padding: 0; /* Remove top/bottom padding as it's handled by about-card */
-    margin: 0 auto; /* Keep centered if max-width is smaller than card */
+    margin: 0; /* Removed margin auto */
+    flex-grow: 1; /* Allow content to grow and take available space */
+    max-width: none; /* Override previous max-width */
+}
+
+.about-content p {
+    margin-bottom: 1.3rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .about-main-content {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center; /* Center text when stacked */
+        align-items: center; /* Center items when stacked vertically */
+        flex-wrap: wrap; /* Re-enable wrapping for mobile if needed, though column should handle it */
+    }
+
+    .about-image-container {
+        margin-bottom: 1.5rem; /* Space below image when stacked */
+        width: 100%; /* Allow image container to take full width */
+    }
+
+    .about-image-container img {
+        max-width: 200px; /* Limit image size on small screens */
+    }
+
+    .about-card .about-content {
+        text-align: center; /* Center text content for mobile */
+    }
 }
