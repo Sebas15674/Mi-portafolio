@@ -37,9 +37,16 @@ img { max-width: 100%; height: auto; display: block; }
 /* Adjust spacing for the main button group */
 .main-btn-group {
     display: flex;
-    gap: 1rem; /* Space between buttons */
-    justify-content: center;
+    flex-direction: column; /* Changed to column to stack the inner group and the CV button */
+    align-items: center; /* Center items horizontally */
+    gap: 1rem; /* Space between the inner group and the CV button */
     margin-top: 2rem; /* Push buttons down */
+}
+
+.main-btn-group .inner-group { /* New class for the first two buttons */
+    display: flex;
+    gap: 1rem; /* Space between the first two buttons */
+    justify-content: center;
 }
 
 /* Secondary Button Style */
@@ -74,6 +81,26 @@ img { max-width: 100%; height: auto; display: block; }
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
     transition: 0.3s;
 }.btn.primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); }
+
+/* Download CV Button Style */
+.btn.download-cv {
+    display: inline-block;
+    background-color: #f97474; /* Light Red */
+    color: var(--dark); /* Use dark color for text */
+    padding: 1rem 2.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 1px solid var(--border); /* Subtle border */
+    transition: 0.3s;
+}
+
+.btn.download-cv:hover {
+    background: #FFCCCC; /* Slightly darker light red on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow on hover */
+    transform: translateY(-3px);
+}
 
 /* IMAGEN DEL BANNER PRINCIPAL */
 .hero-image-container { text-align: center; padding: 3.75rem 0 5rem; }
