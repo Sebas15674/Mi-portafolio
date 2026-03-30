@@ -45,6 +45,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .main-btn-group .inner-group { /* New class for the first two buttons */
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem; /* Space between the first two buttons */
     justify-content: center;
 }
@@ -336,6 +337,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Responsive adjustments for footer */
 @media (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+    .nav-container {
+        justify-content: center;
+    }
     .footer-content {
         flex-direction: column;
         text-align: center;
